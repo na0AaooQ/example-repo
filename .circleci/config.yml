@@ -22,8 +22,3 @@ jobs:
       - run:
           name: CircleCI test
           command: php ./test.php
-
-      - save_cache:
-          paths:
-            - ./cache
-          key: v1-dependencies-test123
