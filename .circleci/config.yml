@@ -19,13 +19,6 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
       - run:
           name: CircleCI test
           command: php ./test.php
@@ -34,6 +27,3 @@ jobs:
           paths:
             - ./cache
           key: v1-dependencies-test123
-        
-      # run tests!
-      - run: phpunit
